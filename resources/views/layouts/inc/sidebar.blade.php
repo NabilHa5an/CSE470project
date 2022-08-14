@@ -12,7 +12,7 @@
           <li class="nav-item active  ">
             <a class="nav-link" href="./dashboard.html">
               <i class="material-icons">dashboard</i>
-              <p>Dashboard2</p>
+              <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item ">
