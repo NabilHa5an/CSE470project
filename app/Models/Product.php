@@ -19,4 +19,13 @@ class Product extends Model
         'meta_keywords',
         'meta_description',
     ];
+
+
+    public function category()
+    {
+        return $this->belongsto(Category::class, 'cate_id','id');
+
+    }
 }
+
+

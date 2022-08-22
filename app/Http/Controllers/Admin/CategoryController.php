@@ -56,6 +56,7 @@ class CategoryController extends Controller
             if(File::exists($path))
             {
                 File::delete($path);
+            }
                 $file = $request-> file('image');
                 $ext = $file->getClientOriginalExtension();
                 $filename = time().'.'.$ext;
@@ -64,7 +65,7 @@ class CategoryController extends Controller
             }
 
 
-        }
+        
         $category->name =$request->input('name');
         $category->description =$request->input('description');
         $category->status =$request->input('status') == TRUE ? '1':'0';
