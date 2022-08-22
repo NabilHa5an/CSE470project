@@ -25,9 +25,11 @@ Route::get('/',[FrontendController::class, 'index']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('category',[FrontendController::class, 'category']);
+Route::get('view-category/{meta_title}',[FrontendController::class, 'viewcategory']);
 
 
- Route::middleware(['auth','isAdmin']) ->group (function(){
+Route::middleware(['auth','isAdmin']) ->group (function(){
     Route::get('/dashboard','App\Http\controllers\admin\FrontendController@index');
 
     Route::get('categories','App\Http\controllers\admin\CategoryController@index');

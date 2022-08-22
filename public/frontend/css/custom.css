@@ -20,3 +20,8 @@ a{
     text-decoration: none !important;
     color: darkslategrey;
 }
+ .img-res
+{
+    width:304px;
+    height:304px;
+}
