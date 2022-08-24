@@ -6,33 +6,42 @@
 
 
 @section('content')
-   <div class="container">
+   <div class="container py-5">
     <div class="row">
         <div class="col-md-12">
-            <table class="table table-bordered">
-               <thead>
-                <tr>
-                    <th>Tracking Number</th>
-                    <th>Total Price</th>
-                    <th>Action</th>
-                </tr>
-               </thead>
-               <tbody>
-                @foreach ($orders as $item )
+            <div class="card">
+                <div class="card-header">
+                    <h4>My Order</h4>
+
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                         <tr>
+                             <th>Tracking Number</th>
+                             <th>Total Price</th>
+                             <th>Action</th>
+                         </tr>
+                        </thead>
+                        <tbody>
+                         @foreach ($orders as $item )
 
 
-                <tr>
+                         <tr>
 
-                    <td>{{ $item->tracking_no}}</td>
-                    <td>{{ $item->total_price}}</td>
-                    <td>
-                        <a href="{{url('#')}}" class="btn btn-primary">View</a>
+                             <td>{{ $item->tracking_no}}</td>
+                             <td>{{ $item->total_price}}</td>
+                             <td>
+                                 <a href="{{url('#')}}" class="btn btn-primary">View</a>
 
-                    </td>
-                </tr>
-                @endforeach
-               </tbody>
-            </table>
+                             </td>
+                         </tr>
+                         @endforeach
+                        </tbody>
+                     </table>
+                </div>
+            </div>
+
         </div>
     </div>
    </div>
