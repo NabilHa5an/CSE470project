@@ -14,7 +14,7 @@
                     <div class="row">
                         @foreach ($category as $cate)
                             <div class="col-md-3 mb-3">
-                                <a href= "#">
+                                <a href= "{{ url('view-category/' . $cate->meta_title) }}">
                                     <div class="card">
                                         <img src="{{ asset('assets/uploads/category/'.$cate->image) }}"alt="Category Image">
 
@@ -29,6 +29,7 @@
                                 </a>
                             </div>
                         @endforeach
+                    </a>
                     </div>
                 </div>
 
@@ -37,7 +38,7 @@
         </div>
     </div>
 @endsection
-{{-- {{ url('view-category/' . $cate->meta_title) }} --}}
+
 
 {{-- @section('scripts')
     <script>

@@ -19,20 +19,40 @@ class FrontendController extends Controller
 
     public function category()
     {
-        $category = Category::where('status','0')->get();
+        $category = Category::where('status','1')->get();
         return view('frontend.category',compact('category'));
     }
 
     public function viewcategory($meta_title)
     {
-        if(Category::where('meta_title',$id)->exists())
+        if(Category::where('meta_title',$meta_title)->exists())
         {
             $category = Category::where('meta_title',$meta_title)->first();
-            $products = Product::where('cate_id',$category->id)->where('status','0')->get();
+            $products = Product::where('cate_id',$category->id)->where('status','1')->get();
             return view('frontend.products.index',compact('category','products'));
         }
         else{
             return redirect('/')->with('status',"Broken Link");
         }
+    }
+
+    public function productview($cate_meta_title, $prod_meta_title)
+    {
+        if(Category::where('meta_title',$cate_meta_title)->exists())
+        {
+
+            if(Product::where('meta_title',$prod_meta_title)->exists())
+            {
+                 $products = Product::where('meta_title',$prod_meta_title)->first();
+                 return view('frontend.products.view', compact('products'));
+            }
+            else{
+                return redirect('/')->with('status',"Broken Link");
+            }
+        }
+        else{
+            return redirect('/')->with('status',"Broken Link");
+        }
+
     }
 }
