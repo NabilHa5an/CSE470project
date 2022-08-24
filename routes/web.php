@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\UserController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Frontend\FrontendController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +38,9 @@ Route::post('update-cart',[CartController::class,'updatecart']);
 
 Route::middleware(['auth'])->group(function () {
      Route::get('cart',[CartController::class, 'viewcart']);
+     Route::get('checkout',[CheckoutController::class,'index']);
+     Route::post('place-order',[CheckoutController::class, 'placeorder']);
+     Route::get('my-orders',[UserController::class, 'index']);
 });
 
 
